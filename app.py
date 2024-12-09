@@ -2,9 +2,13 @@ import streamlit as st
 import pandas as pd
 import openai
 
-# Set up OpenAI API key
-openai.api_key = st.secrets["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"]
-
+# Load OpenAI API key from secrets
+try:
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
+except KeyError:
+    st.error("API key is missing. Please add it to Streamlit secrets.")
+    st.stop()
+    
 # Load dataset
 @st.cache
 def load_data():

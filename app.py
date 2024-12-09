@@ -7,7 +7,9 @@ try:
     openai.api_key = st.secrets["OPENAI_API_KEY"]
 except KeyError:
     st.error("API key is missing. Please add it to Streamlit secrets.")
+    st.write(st.secrets)
     st.stop()
+
     
 # Load dataset
 @st.cache

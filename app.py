@@ -5,7 +5,7 @@ import openai
 # Load dataset
 @st.cache
 def load_data():
-    return pd.read_csv("your_dataset.csv")
+    return pd.read_csv("BooksDataSet_project.csv")
 
 df = load_data()
 df['Genre'] = df['Genre'].str.lower()
